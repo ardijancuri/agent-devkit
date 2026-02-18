@@ -1,6 +1,6 @@
 'use client';
 
-import { Shell } from '@/components/layout/Shell';
+import { useRouter } from 'next/navigation';
 import { FolderOpen, Play, DollarSign, Bot, ArrowRight, Plus, Zap } from 'lucide-react';
 import type { Run } from '@/lib/types';
 import { STATUS_COLORS, STATUS_DOT } from '@/lib/constants';
@@ -44,9 +44,10 @@ function formatTime(iso: string): string {
 }
 
 export default function DashboardPage() {
+  const router = useRouter();
+
   return (
-    <Shell>
-      <div className="space-y-8">
+    <div className="space-y-8">
         <div>
           <h1 className="text-2xl font-bold text-white">Dashboard</h1>
           <p className="mt-1 text-sm text-gray-400">Overview of your agent systems</p>
@@ -101,19 +102,18 @@ export default function DashboardPage() {
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-5">
             <h2 className="text-lg font-semibold text-white mb-4">Quick Actions</h2>
             <div className="space-y-3">
-              <button className="w-full flex items-center gap-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 px-4 py-3 text-sm font-medium text-white transition-colors">
+              <button onClick={() => router.push('/studio?new=1')} className="w-full flex items-center gap-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 px-4 py-3 text-sm font-medium text-white transition-colors">
                 <Plus className="h-4 w-4" /> New Project
               </button>
-              <button className="w-full flex items-center gap-3 rounded-lg bg-gray-800 hover:bg-gray-700 px-4 py-3 text-sm font-medium text-gray-200 transition-colors">
+              <button onClick={() => router.push('/studio')} className="w-full flex items-center gap-3 rounded-lg bg-gray-800 hover:bg-gray-700 px-4 py-3 text-sm font-medium text-gray-200 transition-colors">
                 <Zap className="h-4 w-4" /> Open Studio
               </button>
-              <button className="w-full flex items-center gap-3 rounded-lg bg-gray-800 hover:bg-gray-700 px-4 py-3 text-sm font-medium text-gray-200 transition-colors">
+              <button onClick={() => router.push('/runs')} className="w-full flex items-center gap-3 rounded-lg bg-gray-800 hover:bg-gray-700 px-4 py-3 text-sm font-medium text-gray-200 transition-colors">
                 <Play className="h-4 w-4" /> Trigger Run
               </button>
             </div>
           </div>
         </div>
       </div>
-    </Shell>
   );
 }

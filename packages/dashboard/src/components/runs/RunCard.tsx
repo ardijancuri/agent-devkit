@@ -48,7 +48,7 @@ export function RunCard({ run, projectName, onClick }: RunCardProps) {
   return (
     <button
       onClick={onClick}
-      className="w-full bg-gray-900 border border-gray-800 rounded-lg p-4 flex items-center gap-4 hover:border-gray-700 hover:bg-gray-900/80 transition-colors text-left group"
+      className="w-full bg-gray-900 border border-gray-800 rounded-lg p-4 flex items-center gap-4 hover:border-gray-700 hover:bg-gray-900/80 transition-colors text-left group cursor-pointer"
     >
       {/* Status Badge */}
       <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${style.bg} ${style.text}`}>

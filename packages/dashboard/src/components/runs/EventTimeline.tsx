@@ -114,7 +114,7 @@ export function EventTimeline({ events, run }: Props) {
           <p className="text-xs text-gray-400 mt-1">{hoveredEvent.type}</p>
           <p className="text-xs text-gray-500 mt-1">{new Date(hoveredEvent.timestamp).toLocaleTimeString()}</p>
           <p className="text-xs text-gray-500">{hoveredEvent.tokens.toLocaleString()} tokens · ${hoveredEvent.cost.toFixed(5)}</p>
-          {hoveredEvent.data.summary && <p className="text-xs text-gray-300 mt-1 truncate">{String(hoveredEvent.data.summary)}</p>}
+          {hoveredEvent.data.summary ? <p className="text-xs text-gray-300 mt-1 truncate">{String(hoveredEvent.data.summary)}</p> : null}
         </div>
       )}
 

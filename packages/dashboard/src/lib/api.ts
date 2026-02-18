@@ -2,7 +2,7 @@
 
 import type { Project, AgentNode, Run, RunEvent, DashboardStats } from './types';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api/v1';
 
 class ApiClient {
   private token: string | null = null;
@@ -40,7 +40,9 @@ class ApiClient {
       throw new Error(`API error ${res.status}: ${body}`);
     }
 
-    return res.json();
+    const json = await res.json();
+    // API wraps responses in { success, data }
+    return json.data !== undefined ? json.data : json;
   }
 
   // Auth
