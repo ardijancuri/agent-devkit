@@ -111,18 +111,18 @@ export default function PatternLibrary({ onApply }: PatternLibraryProps) {
     return (
       <button
         onClick={() => setCollapsed(false)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-900 border border-gray-700 rounded-r-lg p-2 hover:bg-gray-800"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gh-subtle border border-gh-border rounded-r-lg p-2 hover:bg-gh-btn"
       >
-        <ChevronRight className="w-4 h-4 text-gray-400" />
+        <ChevronRight className="w-4 h-4 text-gh-fg-muted" />
       </button>
     );
   }
 
   return (
-    <div className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col h-full">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-800">
-        <h3 className="text-sm font-semibold text-white">Patterns</h3>
-        <button onClick={() => setCollapsed(true)} className="text-gray-400 hover:text-white">
+    <div className="w-64 bg-gh-subtle border-r border-gh-border flex flex-col h-full">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gh-border">
+        <h3 className="text-sm font-semibold text-gh-fg">Patterns</h3>
+        <button onClick={() => setCollapsed(true)} className="text-gh-fg-muted hover:text-gh-fg">
           <ChevronLeft className="w-4 h-4" />
         </button>
       </div>
@@ -131,15 +131,15 @@ export default function PatternLibrary({ onApply }: PatternLibraryProps) {
           <button
             key={pattern.id}
             onClick={() => onApply(pattern.agents, pattern.connections)}
-            className="w-full text-left p-3 rounded-lg hover:bg-gray-800 transition-colors group"
+            className="w-full text-left p-3 rounded-lg hover:bg-gh-btn transition-colors group"
           >
             <div className="flex items-center gap-2 mb-1">
               {pattern.icon}
-              <span className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors">
+              <span className="text-sm font-medium text-gh-fg group-hover:text-blue-400 transition-colors">
                 {pattern.name}
               </span>
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">{pattern.description}</p>
+            <p className="text-xs text-gh-fg-subtle leading-relaxed">{pattern.description}</p>
           </button>
         ))}
       </div>

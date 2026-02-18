@@ -7,8 +7,8 @@ const STATUS_STYLES: Record<Run['status'], { bg: string; text: string; dot: stri
   completed: { bg: 'bg-green-500/10', text: 'text-green-400', dot: 'bg-green-400' },
   running: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', dot: 'bg-yellow-400' },
   failed: { bg: 'bg-red-500/10', text: 'text-red-400', dot: 'bg-red-400' },
-  pending: { bg: 'bg-gray-500/10', text: 'text-gray-400', dot: 'bg-gray-400' },
-  cancelled: { bg: 'bg-gray-500/10', text: 'text-gray-500', dot: 'bg-gray-500' },
+  pending: { bg: 'bg-gray-500/10', text: 'text-gh-fg-muted', dot: 'bg-gray-400' },
+  cancelled: { bg: 'bg-gray-500/10', text: 'text-gh-fg-subtle', dot: 'bg-gray-500' },
 };
 
 function formatDuration(seconds: number | null): string {
@@ -48,7 +48,7 @@ export function RunCard({ run, projectName, onClick }: RunCardProps) {
   return (
     <button
       onClick={onClick}
-      className="w-full bg-gray-900 border border-gray-800 rounded-lg p-4 flex items-center gap-4 hover:border-gray-700 hover:bg-gray-900/80 transition-colors text-left group cursor-pointer"
+      className="w-full bg-gh-subtle border border-gh-border rounded-lg p-4 flex items-center gap-4 hover:border-gh-border hover:bg-gh-subtle/80 transition-colors text-left group cursor-pointer"
     >
       {/* Status Badge */}
       <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${style.bg} ${style.text}`}>
@@ -58,12 +58,12 @@ export function RunCard({ run, projectName, onClick }: RunCardProps) {
 
       {/* Project & Run ID */}
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-white truncate">{projectName}</p>
-        <p className="text-xs text-gray-500 font-mono">{run.id}</p>
+        <p className="text-sm font-medium text-gh-fg truncate">{projectName}</p>
+        <p className="text-xs text-gh-fg-subtle font-mono">{run.id}</p>
       </div>
 
       {/* Metrics */}
-      <div className="hidden sm:flex items-center gap-6 text-xs text-gray-400">
+      <div className="hidden sm:flex items-center gap-6 text-xs text-gh-fg-muted">
         <span className="flex items-center gap-1">
           <Clock className="w-3.5 h-3.5" />
           {formatDuration(run.duration)}
@@ -79,9 +79,9 @@ export function RunCard({ run, projectName, onClick }: RunCardProps) {
       </div>
 
       {/* Timestamp */}
-      <span className="text-xs text-gray-500 whitespace-nowrap">{relativeTime(run.startedAt)}</span>
+      <span className="text-xs text-gh-fg-subtle whitespace-nowrap">{relativeTime(run.startedAt)}</span>
 
-      <ChevronRight className="w-4 h-4 text-gray-700 group-hover:text-gray-400 transition-colors" />
+      <ChevronRight className="w-4 h-4 text-gray-700 group-hover:text-gh-fg-muted transition-colors" />
     </button>
   );
 }

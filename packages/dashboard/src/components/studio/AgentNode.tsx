@@ -42,8 +42,8 @@ function AgentNodeComponent({ data, id, selected }: NodeProps & { data: AgentNod
 
   return (
     <div
-      className={`relative bg-gray-900 border-2 rounded-xl px-4 py-3 min-w-[180px] transition-all ${
-        selected ? 'border-blue-500 shadow-lg shadow-blue-500/20' : 'border-gray-700 hover:border-gray-500'
+      className={`relative bg-gh-subtle border-2 rounded-xl px-4 py-3 min-w-[180px] transition-all ${
+        selected ? 'border-blue-500 shadow-lg shadow-blue-500/20' : 'border-gh-border hover:border-gray-500'
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -63,21 +63,21 @@ function AgentNodeComponent({ data, id, selected }: NodeProps & { data: AgentNod
           }}
           className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-500 rounded-full p-1 z-10"
         >
-          <Trash2 className="w-3 h-3 text-white" />
+          <Trash2 className="w-3 h-3 text-gh-fg" />
         </button>
       )}
 
       <div className="flex items-center gap-2 mb-2">
         <Bot className="w-4 h-4 text-blue-400 shrink-0" />
-        <span className="text-sm font-semibold text-white truncate">{data.name}</span>
+        <span className="text-sm font-semibold text-gh-fg truncate">{data.name}</span>
       </div>
 
       <div className="flex items-center gap-2">
-        <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium text-white ${getModelColor(data.model)}`}>
+        <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium text-gh-fg ${getModelColor(data.model)}`}>
           {getModelLabel(data.model)}
         </span>
         {data.tools.length > 0 && (
-          <span className="flex items-center gap-0.5 text-[10px] text-gray-400">
+          <span className="flex items-center gap-0.5 text-[10px] text-gh-fg-muted">
             <Wrench className="w-3 h-3" />
             {data.tools.length}
           </span>

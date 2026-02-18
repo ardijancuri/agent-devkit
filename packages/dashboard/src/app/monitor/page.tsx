@@ -62,7 +62,7 @@ export default function MonitorPage() {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <Radio className="w-6 h-6 text-red-400 animate-pulse" />
-            <h1 className="text-2xl font-bold text-white">Live Monitor</h1>
+            <h1 className="text-2xl font-bold text-gh-fg">Live Monitor</h1>
             <span className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${connected ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
               {connected ? <Wifi className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
               {connected ? 'Connected' : 'Disconnected'}
@@ -71,10 +71,10 @@ export default function MonitorPage() {
         </div>
 
         {!hasActiveRun ? (
-          <div className="bg-gray-900 border border-gray-800 rounded-lg p-16 text-center">
+          <div className="bg-gh-subtle border border-gh-border rounded-lg p-16 text-center">
             <Radio className="w-16 h-16 text-gray-700 mx-auto mb-4" />
-            <h2 className="text-xl font-semibold text-gray-400 mb-2">No Active Runs</h2>
-            <p className="text-gray-500">Start a run from the Studio to see live monitoring data.</p>
+            <h2 className="text-xl font-semibold text-gh-fg-muted mb-2">No Active Runs</h2>
+            <p className="text-gh-fg-subtle">Start a run from the Studio to see live monitoring data.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

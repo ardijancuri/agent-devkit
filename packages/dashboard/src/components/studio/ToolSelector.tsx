@@ -43,18 +43,18 @@ export default function ToolSelector({ selectedTools, onChange }: ToolSelectorPr
       {BUILT_IN_TOOLS.map((tool) => (
         <label
           key={tool.id}
-          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 cursor-pointer"
+          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gh-btn cursor-pointer"
         >
           <input
             type="checkbox"
             checked={selectedTools.includes(tool.id)}
             onChange={() => toggle(tool.id)}
-            className="w-4 h-4 rounded bg-gray-800 border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0"
+            className="w-4 h-4 rounded bg-gh-btn border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0"
           />
-          <Wrench className="w-3.5 h-3.5 text-gray-400" />
+          <Wrench className="w-3.5 h-3.5 text-gh-fg-muted" />
           <div>
-            <div className="text-sm text-white">{tool.name}</div>
-            <div className="text-xs text-gray-500">{tool.description}</div>
+            <div className="text-sm text-gh-fg">{tool.name}</div>
+            <div className="text-xs text-gh-fg-subtle">{tool.description}</div>
           </div>
         </label>
       ))}
@@ -63,33 +63,33 @@ export default function ToolSelector({ selectedTools, onChange }: ToolSelectorPr
       {selectedTools
         .filter((t) => t.startsWith('custom_'))
         .map((t) => (
-          <div key={t} className="flex items-center justify-between p-2 rounded-lg bg-gray-800">
-            <span className="text-sm text-white">{t.replace('custom_', '').replace(/_/g, ' ')}</span>
-            <button onClick={() => onChange(selectedTools.filter((s) => s !== t))} className="text-gray-500 hover:text-red-400">
+          <div key={t} className="flex items-center justify-between p-2 rounded-lg bg-gh-btn">
+            <span className="text-sm text-gh-fg">{t.replace('custom_', '').replace(/_/g, ' ')}</span>
+            <button onClick={() => onChange(selectedTools.filter((s) => s !== t))} className="text-gh-fg-subtle hover:text-red-400">
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
         ))}
 
       {showCustom ? (
-        <div className="space-y-2 p-3 bg-gray-800 rounded-lg">
+        <div className="space-y-2 p-3 bg-gh-btn rounded-lg">
           <input
             type="text"
             value={customName}
             onChange={(e) => setCustomName(e.target.value)}
             placeholder="Tool name"
-            className="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500"
+            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
           />
           <input
             type="text"
             value={customDesc}
             onChange={(e) => setCustomDesc(e.target.value)}
             placeholder="Description"
-            className="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500"
+            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
           />
           <div className="flex gap-2 justify-end">
-            <button onClick={() => setShowCustom(false)} className="text-xs text-gray-400 hover:text-white">Cancel</button>
-            <button onClick={addCustom} className="text-xs bg-blue-600 hover:bg-blue-500 text-white px-2 py-1 rounded">Add</button>
+            <button onClick={() => setShowCustom(false)} className="text-xs text-gh-fg-muted hover:text-gh-fg">Cancel</button>
+            <button onClick={addCustom} className="text-xs bg-blue-600 hover:bg-blue-500 text-gh-fg px-2 py-1 rounded">Add</button>
           </div>
         </div>
       ) : (

@@ -16,18 +16,18 @@ export function CostTracker({ agents, totalCost, budgetLimit }: Props) {
   const budgetPct = budgetLimit ? Math.min((totalCost / budgetLimit) * 100, 100) : null;
 
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-5">
+    <div className="bg-gh-subtle border border-gh-border rounded-lg p-5">
       <div className="flex items-center gap-2 mb-4">
         <DollarSign className="w-4 h-4 text-emerald-400" />
-        <h2 className="text-sm font-medium text-gray-400">Cost Tracker</h2>
+        <h2 className="text-sm font-medium text-gh-fg-muted">Cost Tracker</h2>
       </div>
 
       <div className="flex items-baseline gap-4 mb-4">
         <div>
-          <p className="text-2xl font-bold text-white">${totalCost.toFixed(4)}</p>
-          <p className="text-xs text-gray-500">Total cost</p>
+          <p className="text-2xl font-bold text-gh-fg">${totalCost.toFixed(4)}</p>
+          <p className="text-xs text-gh-fg-subtle">Total cost</p>
         </div>
-        <div className="flex items-center gap-1 text-xs text-gray-500">
+        <div className="flex items-center gap-1 text-xs text-gh-fg-subtle">
           <TrendingUp className="w-3 h-3" />
           ${costPerMinute}/min
         </div>
@@ -36,11 +36,11 @@ export function CostTracker({ agents, totalCost, budgetLimit }: Props) {
       {/* Budget bar */}
       {budgetPct !== null && budgetLimit && (
         <div className="mb-4">
-          <div className="flex justify-between text-xs text-gray-500 mb-1">
+          <div className="flex justify-between text-xs text-gh-fg-subtle mb-1">
             <span>Budget</span>
             <span>${totalCost.toFixed(2)} / ${budgetLimit.toFixed(2)}</span>
           </div>
-          <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-gh-btn rounded-full overflow-hidden">
             <div
               className={`h-full rounded-full transition-all ${budgetPct > 80 ? 'bg-red-500' : budgetPct > 50 ? 'bg-yellow-500' : 'bg-emerald-500'}`}
               style={{ width: `${budgetPct}%` }}
@@ -56,11 +56,11 @@ export function CostTracker({ agents, totalCost, budgetLimit }: Props) {
           return (
             <div key={agent.agentId} className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: AGENT_COLORS[i % AGENT_COLORS.length] }} />
-              <span className="text-xs text-gray-400 w-24 truncate">{agent.name}</span>
-              <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+              <span className="text-xs text-gh-fg-muted w-24 truncate">{agent.name}</span>
+              <div className="flex-1 h-1.5 bg-gh-btn rounded-full overflow-hidden">
                 <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: AGENT_COLORS[i % AGENT_COLORS.length] }} />
               </div>
-              <span className="text-xs text-gray-500 w-16 text-right">${agent.cost.toFixed(4)}</span>
+              <span className="text-xs text-gh-fg-subtle w-16 text-right">${agent.cost.toFixed(4)}</span>
             </div>
           );
         })}

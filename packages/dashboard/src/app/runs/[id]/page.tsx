@@ -41,7 +41,7 @@ const STATUS_ICON: Record<string, React.ReactNode> = {
   completed: <CheckCircle2 className="w-5 h-5 text-green-400" />,
   failed: <XCircle className="w-5 h-5 text-red-400" />,
   running: <Loader2 className="w-5 h-5 text-yellow-400 animate-spin" />,
-  pending: <Clock className="w-5 h-5 text-gray-400" />,
+  pending: <Clock className="w-5 h-5 text-gh-fg-muted" />,
 };
 
 const TABS = [
@@ -80,14 +80,14 @@ export default function RunDetailPage() {
     <div className="min-h-screen bg-gray-950 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <button onClick={() => router.push('/runs')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-4 transition-colors">
+        <button onClick={() => router.push('/runs')} className="flex items-center gap-2 text-sm text-gh-fg-muted hover:text-gh-fg mb-4 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to runs
         </button>
 
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-6">
+        <div className="bg-gh-subtle border border-gh-border rounded-lg p-6 mb-6">
           <div className="flex items-center gap-3 mb-4">
             {STATUS_ICON[run.status]}
-            <h1 className="text-xl font-bold text-white">{runId}</h1>
+            <h1 className="text-xl font-bold text-gh-fg">{runId}</h1>
             <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${run.status === 'completed' ? 'bg-green-500/10 text-green-400' : run.status === 'failed' ? 'bg-red-500/10 text-red-400' : 'bg-yellow-500/10 text-yellow-400'}`}>
               {run.status}
             </span>
@@ -99,23 +99,23 @@ export default function RunDetailPage() {
               { icon: Coins, label: 'Total Cost', value: '$' + run.totalCost.toFixed(4) },
               { icon: Users, label: 'Agents', value: String(AGENT_NAMES.length) },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="bg-gray-800/50 rounded-lg p-3">
-                <div className="flex items-center gap-2 text-gray-400 text-xs mb-1">
+              <div key={label} className="bg-gh-btn/50 rounded-lg p-3">
+                <div className="flex items-center gap-2 text-gh-fg-muted text-xs mb-1">
                   <Icon className="w-3.5 h-3.5" /> {label}
                 </div>
-                <p className="text-lg font-semibold text-white">{value}</p>
+                <p className="text-lg font-semibold text-gh-fg">{value}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 mb-6 border-b border-gray-800">
+        <div className="flex gap-1 mb-6 border-b border-gh-border">
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
               onClick={() => setTab(id)}
-              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors cursor-pointer ${tab === id ? 'border-blue-500 text-blue-400' : 'border-transparent text-gray-500 hover:text-gray-300'}`}
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors cursor-pointer ${tab === id ? 'border-blue-500 text-blue-400' : 'border-transparent text-gh-fg-subtle hover:text-gh-fg-muted'}`}
             >
               <Icon className="w-4 h-4" /> {label}
             </button>
@@ -131,7 +131,7 @@ export default function RunDetailPage() {
               <select
                 value={eventTypeFilter}
                 onChange={e => setEventTypeFilter(e.target.value)}
-                className="bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
               >
                 <option value="all">All Event Types</option>
                 {EVENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
@@ -139,18 +139,18 @@ export default function RunDetailPage() {
             </div>
             <div className="space-y-2">
               {filteredEvents.map(evt => (
-                <div key={evt.id} className="bg-gray-900 border border-gray-800 rounded-lg p-3 flex items-center gap-4">
-                  <span className="text-xs text-gray-500 font-mono w-20 shrink-0">
+                <div key={evt.id} className="bg-gh-subtle border border-gh-border rounded-lg p-3 flex items-center gap-4">
+                  <span className="text-xs text-gh-fg-subtle font-mono w-20 shrink-0">
                     {new Date(evt.timestamp).toLocaleTimeString()}
                   </span>
                   <span className={`text-xs font-medium w-24 shrink-0 ${['text-blue-400', 'text-emerald-400', 'text-purple-400', 'text-orange-400'][parseInt(evt.agentId.split('-')[1])]}`}>
                     {evt.agentName}
                   </span>
-                  <span className={`px-2 py-0.5 rounded text-xs ${evt.type === 'error' ? 'bg-red-500/10 text-red-400' : evt.type.startsWith('tool') ? 'bg-blue-500/10 text-blue-400' : 'bg-gray-800 text-gray-400'}`}>
+                  <span className={`px-2 py-0.5 rounded text-xs ${evt.type === 'error' ? 'bg-red-500/10 text-red-400' : evt.type.startsWith('tool') ? 'bg-blue-500/10 text-blue-400' : 'bg-gh-btn text-gh-fg-muted'}`}>
                     {evt.type}
                   </span>
-                  <span className="text-sm text-gray-300 flex-1 truncate">{String(evt.data.summary)}</span>
-                  <span className="text-xs text-gray-500">{evt.tokens.toLocaleString()} tok</span>
+                  <span className="text-sm text-gh-fg-muted flex-1 truncate">{String(evt.data.summary)}</span>
+                  <span className="text-xs text-gh-fg-subtle">{evt.tokens.toLocaleString()} tok</span>
                 </div>
               ))}
             </div>
@@ -160,20 +160,20 @@ export default function RunDetailPage() {
         {tab === 'agents' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {agentBreakdown.map(agent => (
-              <div key={agent.agentId} className="bg-gray-900 border border-gray-800 rounded-lg p-5">
-                <h3 className="text-white font-semibold mb-3">{agent.name}</h3>
+              <div key={agent.agentId} className="bg-gh-subtle border border-gh-border rounded-lg p-5">
+                <h3 className="text-gh-fg font-semibold mb-3">{agent.name}</h3>
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div>
-                    <p className="text-xs text-gray-500">Tokens</p>
-                    <p className="text-sm font-medium text-white">{(agent.tokens / 1000).toFixed(1)}K</p>
+                    <p className="text-xs text-gh-fg-subtle">Tokens</p>
+                    <p className="text-sm font-medium text-gh-fg">{(agent.tokens / 1000).toFixed(1)}K</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500">Cost</p>
-                    <p className="text-sm font-medium text-white">${agent.cost.toFixed(4)}</p>
+                    <p className="text-xs text-gh-fg-subtle">Cost</p>
+                    <p className="text-sm font-medium text-gh-fg">${agent.cost.toFixed(4)}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500">Events</p>
-                    <p className="text-sm font-medium text-white">{agent.eventCount}</p>
+                    <p className="text-xs text-gh-fg-subtle">Events</p>
+                    <p className="text-sm font-medium text-gh-fg">{agent.eventCount}</p>
                   </div>
                 </div>
               </div>

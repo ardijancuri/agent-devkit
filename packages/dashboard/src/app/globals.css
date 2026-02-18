@@ -1,8 +1,58 @@
 @import 'tailwindcss';
 
+/* GitHub Dark (default) */
+:root {
+  --color-canvas-default: #0d1117;
+  --color-canvas-subtle: #161b22;
+  --color-canvas-inset: #010409;
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  --color-fg-default: #e6edf3;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+  --color-accent-fg: #58a6ff;
+  --color-accent-emphasis: #1f6feb;
+  --color-success-fg: #3fb950;
+  --color-danger-fg: #f85149;
+  --color-attention-fg: #d29922;
+  --color-neutral-emphasis: #6e7681;
+  --color-btn-bg: #21262d;
+  --color-btn-hover: #30363d;
+  --color-btn-primary: #238636;
+  --color-btn-primary-hover: #2ea043;
+  --color-scrollbar-track: transparent;
+  --color-scrollbar-thumb: #30363d;
+  --color-scrollbar-thumb-hover: #484f58;
+}
+
+/* GitHub Light */
+.light, :root:not(.dark) {
+  --color-canvas-default: #ffffff;
+  --color-canvas-subtle: #f6f8fa;
+  --color-canvas-inset: #eff2f5;
+  --color-border-default: #d0d7de;
+  --color-border-muted: #d8dee4;
+  --color-fg-default: #1f2328;
+  --color-fg-muted: #656d76;
+  --color-fg-subtle: #6e7781;
+  --color-accent-fg: #0969da;
+  --color-accent-emphasis: #0969da;
+  --color-success-fg: #1a7f37;
+  --color-danger-fg: #cf222e;
+  --color-attention-fg: #9a6700;
+  --color-neutral-emphasis: #6e7781;
+  --color-btn-bg: #f6f8fa;
+  --color-btn-hover: #eaeef2;
+  --color-btn-primary: #1f883d;
+  --color-btn-primary-hover: #1a7f37;
+  --color-scrollbar-track: transparent;
+  --color-scrollbar-thumb: #d0d7de;
+  --color-scrollbar-thumb-hover: #afb8c1;
+}
+
 body {
-  background-color: #030712;
-  color: #f3f4f6;
+  background-color: var(--color-canvas-default);
+  color: var(--color-fg-default);
 }
 
 ::-webkit-scrollbar {
@@ -11,14 +61,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: var(--color-scrollbar-thumb);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
+  background: var(--color-scrollbar-thumb-hover);
 }

@@ -21,16 +21,16 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`flex flex-col border-r border-gray-800 bg-gray-900 transition-all duration-200 ${
+      className={`flex flex-col border-r border-gh-border bg-gh-subtle transition-all duration-200 ${
         sidebarOpen ? 'w-56' : 'w-16'
       }`}
     >
       {/* Logo */}
-      <div className="flex h-14 items-center gap-2 border-b border-gray-800 px-4">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-600">
-          <Bot className="h-4.5 w-4.5 text-white" />
+      <div className="flex h-14 items-center gap-2 border-b border-gh-border px-4">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gh-accent-emphasis">
+          <Bot className="h-4.5 w-4.5 text-gh-fg" />
         </div>
-        {sidebarOpen && <span className="text-sm font-bold text-white tracking-tight">AgentDevKit</span>}
+        {sidebarOpen && <span className="text-sm font-bold text-gh-fg tracking-tight">AgentDevKit</span>}
       </div>
 
       {/* Nav */}
@@ -44,8 +44,8 @@ export function Sidebar() {
               href={item.href}
               className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                 active
-                  ? 'bg-indigo-600/10 text-indigo-400'
-                  : 'text-gray-400 hover:bg-gray-800 hover:text-gray-200'
+                  ? 'bg-gh-btn text-gh-fg'
+                  : 'text-gh-fg-muted hover:bg-gh-btn hover:text-gh-fg'
               } ${!sidebarOpen ? 'justify-center' : ''}`}
               title={!sidebarOpen ? item.label : undefined}
             >
@@ -57,10 +57,10 @@ export function Sidebar() {
       </nav>
 
       {/* Collapse toggle */}
-      <div className="border-t border-gray-800 p-2">
+      <div className="border-t border-gh-border p-2">
         <button
           onClick={toggleSidebar}
-          className="flex w-full items-center justify-center rounded-lg p-2 text-gray-400 hover:bg-gray-800 hover:text-gray-200 transition-colors"
+          className="flex w-full items-center justify-center rounded-lg p-2 text-gh-fg-muted hover:bg-gh-btn hover:text-gh-fg transition-colors cursor-pointer"
         >
           {sidebarOpen ? <PanelLeftClose className="h-4.5 w-4.5" /> : <PanelLeft className="h-4.5 w-4.5" />}
         </button>

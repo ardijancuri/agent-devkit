@@ -67,7 +67,7 @@ export default function ConnectionEdge({
           onMouseLeave={() => setHovered(false)}
         >
           <div
-            className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium text-white"
+            className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium text-gh-fg"
             style={{ backgroundColor: color + '33', border: `1px solid ${color}` }}
           >
             {channelType}

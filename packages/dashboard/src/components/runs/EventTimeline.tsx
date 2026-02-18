@@ -43,7 +43,7 @@ export function EventTimeline({ events, run }: Props) {
   }
 
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-4 overflow-x-auto relative">
+    <div className="bg-gh-subtle border border-gh-border rounded-lg p-4 overflow-x-auto relative">
       <svg ref={svgRef} width={CHART_WIDTH} height={svgHeight} className="w-full" viewBox={`0 0 ${CHART_WIDTH} ${svgHeight}`}>
         {/* Time axis */}
         {Array.from({ length: 6 }, (_, i) => {
@@ -107,14 +107,14 @@ export function EventTimeline({ events, run }: Props) {
       {/* Popover */}
       {hoveredEvent && (
         <div
-          className="absolute z-50 bg-gray-800 border border-gray-700 rounded-lg p-3 shadow-xl pointer-events-none max-w-xs"
+          className="absolute z-50 bg-gh-btn border border-gh-border rounded-lg p-3 shadow-xl pointer-events-none max-w-xs"
           style={{ left: popoverPos.x + 10, top: popoverPos.y - 10 }}
         >
-          <p className="text-xs font-medium text-white">{hoveredEvent.agentName}</p>
-          <p className="text-xs text-gray-400 mt-1">{hoveredEvent.type}</p>
-          <p className="text-xs text-gray-500 mt-1">{new Date(hoveredEvent.timestamp).toLocaleTimeString()}</p>
-          <p className="text-xs text-gray-500">{hoveredEvent.tokens.toLocaleString()} tokens · ${hoveredEvent.cost.toFixed(5)}</p>
-          {hoveredEvent.data.summary ? <p className="text-xs text-gray-300 mt-1 truncate">{String(hoveredEvent.data.summary)}</p> : null}
+          <p className="text-xs font-medium text-gh-fg">{hoveredEvent.agentName}</p>
+          <p className="text-xs text-gh-fg-muted mt-1">{hoveredEvent.type}</p>
+          <p className="text-xs text-gh-fg-subtle mt-1">{new Date(hoveredEvent.timestamp).toLocaleTimeString()}</p>
+          <p className="text-xs text-gh-fg-subtle">{hoveredEvent.tokens.toLocaleString()} tokens · ${hoveredEvent.cost.toFixed(5)}</p>
+          {hoveredEvent.data.summary ? <p className="text-xs text-gh-fg-muted mt-1 truncate">{String(hoveredEvent.data.summary)}</p> : null}
         </div>
       )}
 
@@ -123,7 +123,7 @@ export function EventTimeline({ events, run }: Props) {
         {Object.entries(EVENT_COLORS).slice(0, 5).map(([type, color]) => (
           <div key={type} className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: color }} />
-            <span className="text-xs text-gray-500">{type}</span>
+            <span className="text-xs text-gh-fg-subtle">{type}</span>
           </div>
         ))}
       </div>

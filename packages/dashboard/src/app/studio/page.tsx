@@ -71,12 +71,12 @@ export default function StudioPage() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">Agent Studio</h1>
-            <p className="text-gray-400 mt-1">Design and configure multi-agent systems</p>
+            <h1 className="text-3xl font-bold text-gh-fg">Agent Studio</h1>
+            <p className="text-gh-fg-muted mt-1">Design and configure multi-agent systems</p>
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-gh-fg rounded-lg transition-colors"
           >
             <Plus className="w-4 h-4" />
             New Project
@@ -88,19 +88,19 @@ export default function StudioPage() {
             <Link
               key={project.id}
               href={`/studio/${project.id}`}
-              className="group block bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition-colors"
+              className="group block bg-gh-subtle border border-gh-border rounded-xl p-6 hover:border-gray-600 transition-colors"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <FolderOpen className="w-5 h-5 text-blue-400" />
-                  <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-semibold text-gh-fg group-hover:text-blue-400 transition-colors">
                     {project.name}
                   </h3>
                 </div>
                 <span className={`w-2.5 h-2.5 rounded-full ${statusColor(project)}`} />
               </div>
-              <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
-              <div className="flex items-center gap-4 text-xs text-gray-500">
+              <p className="text-gh-fg-muted text-sm mb-4 line-clamp-2">{project.description}</p>
+              <div className="flex items-center gap-4 text-xs text-gh-fg-subtle">
                 <span className="flex items-center gap-1">
                   <Bot className="w-3.5 h-3.5" />
                   {project.agentCount} agents
@@ -118,44 +118,44 @@ export default function StudioPage() {
       {/* New Project Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 w-full max-w-md">
+          <div className="bg-gh-subtle border border-gh-border rounded-xl p-6 w-full max-w-md">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">New Project</h2>
-              <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-white">
+              <h2 className="text-xl font-semibold text-gh-fg">New Project</h2>
+              <button onClick={() => setShowModal(false)} className="text-gh-fg-muted hover:text-gh-fg">
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Name</label>
+                <label className="block text-sm text-gh-fg-muted mb-1">Name</label>
                 <input
                   type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-blue-500"
                   placeholder="My Agent System"
                   autoFocus
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Description</label>
+                <label className="block text-sm text-gh-fg-muted mb-1">Description</label>
                 <textarea
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500 h-24 resize-none"
+                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-blue-500 h-24 resize-none"
                   placeholder="What does this system do?"
                 />
               </div>
               <div className="flex gap-3 justify-end">
                 <button
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-gray-400 hover:text-white transition-colors"
+                  className="px-4 py-2 text-gh-fg-muted hover:text-gh-fg transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleCreate}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-gh-fg rounded-lg transition-colors"
                 >
                   Create
                 </button>

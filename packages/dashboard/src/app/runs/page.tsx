@@ -46,33 +46,33 @@ export default function RunsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-gh-fg flex items-center gap-2">
               <Activity className="w-6 h-6 text-blue-400" />
               Run History
             </h1>
-            <p className="text-gray-400 mt-1">{filtered.length} runs total</p>
+            <p className="text-gh-fg-muted mt-1">{filtered.length} runs total</p>
           </div>
         </div>
 
         {/* Filter Bar */}
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-center">
+        <div className="bg-gh-subtle border border-gh-border rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-center">
           <div className="relative flex-1 min-w-[200px]">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gh-fg-subtle" />
             <input
               type="text"
               placeholder="Search runs..."
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
-              className="w-full bg-gray-800 border border-gray-700 rounded-md pl-10 pr-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+              className="w-full bg-gh-btn border border-gh-border rounded-md pl-10 pr-4 py-2 text-sm text-gh-fg placeholder-gh-fg-subtle focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-gray-500" />
+            <Filter className="w-4 h-4 text-gh-fg-subtle" />
             <select
               value={statusFilter}
               onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
-              className="bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+              className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
             >
               <option value="all">All Statuses</option>
               <option value="running">Running</option>
@@ -86,7 +86,7 @@ export default function RunsPage() {
           <select
             value={projectFilter}
             onChange={e => { setProjectFilter(e.target.value); setPage(1); }}
-            className="bg-gray-800 border border-gray-700 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+            className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
           >
             <option value="all">All Projects</option>
             {projects.map(p => (
@@ -106,9 +106,9 @@ export default function RunsPage() {
             />
           ))}
           {pageRuns.length === 0 && (
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-12 text-center">
+            <div className="bg-gh-subtle border border-gh-border rounded-lg p-12 text-center">
               <Activity className="w-12 h-12 text-gray-700 mx-auto mb-3" />
-              <p className="text-gray-400">No runs found</p>
+              <p className="text-gh-fg-muted">No runs found</p>
             </div>
           )}
         </div>
@@ -116,14 +116,14 @@ export default function RunsPage() {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-between mt-6">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gh-fg-subtle">
               Showing {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)} of {filtered.length}
             </p>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="p-2 rounded-md bg-gray-800 border border-gray-700 text-gray-400 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed"
+                className="p-2 rounded-md bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -135,7 +135,7 @@ export default function RunsPage() {
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-blue-600 text-white' : 'bg-gray-800 border border-gray-700 text-gray-400 hover:text-white'}`}
+                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-blue-600 text-gh-fg' : 'bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg'}`}
                   >
                     {p}
                   </button>
@@ -144,7 +144,7 @@ export default function RunsPage() {
               <button
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
-                className="p-2 rounded-md bg-gray-800 border border-gray-700 text-gray-400 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed"
+                className="p-2 rounded-md bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>

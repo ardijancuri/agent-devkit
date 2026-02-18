@@ -215,9 +215,9 @@ export default function AgentCanvas({
         defaultEdgeOptions={{ type: 'connection' }}
       >
         <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="#374151" />
-        <Controls className="!bg-gray-900 !border-gray-700 !rounded-lg [&>button]:!bg-gray-800 [&>button]:!border-gray-700 [&>button]:!text-gray-400 [&>button:hover]:!bg-gray-700" />
+        <Controls className="!bg-gh-subtle !border-gh-border !rounded-lg [&>button]:!bg-gh-btn [&>button]:!border-gh-border [&>button]:!text-gh-fg-muted [&>button:hover]:!bg-gh-btn-hover" />
         <MiniMap
-          className="!bg-gray-900 !border-gray-700 !rounded-lg"
+          className="!bg-gh-subtle !border-gh-border !rounded-lg"
           nodeColor="#3b82f6"
           maskColor="rgba(0,0,0,0.6)"
         />
