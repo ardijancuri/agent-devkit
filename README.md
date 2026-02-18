@@ -6,8 +6,8 @@ The IDE for multi-agent AI systems. Design, run, and monitor AI agent workflows 
 
 | Service   | URL                              |
 |-----------|----------------------------------|
-| Dashboard | http://187.77.82.137:8082        |
-| API       | http://187.77.82.137:8082/api/v1 |
+| Dashboard | <a href="http://187.77.82.137:8082" target="_blank">http://187.77.82.137:8082</a> |
+| API       | <a href="http://187.77.82.137:8082/api/v1" target="_blank">http://187.77.82.137:8082/api/v1</a> |
 
 ## Stack
 
