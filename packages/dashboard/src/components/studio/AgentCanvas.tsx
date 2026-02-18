@@ -211,7 +211,7 @@ export default function AgentCanvas({
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         fitView
-        className="bg-gray-950"
+        className="bg-gh-canvas"
         defaultEdgeOptions={{ type: 'connection' }}
       >
         <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="#374151" />

@@ -30,7 +30,7 @@ const stats = [
   { label: 'Total Projects', value: mockStats.totalProjects, icon: FolderOpen, color: 'text-gh-accent' },
   { label: 'Total Runs', value: mockStats.totalRuns.toLocaleString(), icon: Play, color: 'text-emerald-400' },
   { label: 'Total Cost', value: `$${mockStats.totalCost.toFixed(2)}`, icon: DollarSign, color: 'text-amber-400' },
-  { label: 'Active Agents', value: mockStats.activeAgents, icon: Bot, color: 'text-blue-400' },
+  { label: 'Active Agents', value: mockStats.activeAgents, icon: Bot, color: 'text-gh-accent' },
 ];
 
 function formatDuration(ms: number | null): string {

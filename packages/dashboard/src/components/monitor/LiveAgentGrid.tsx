@@ -4,7 +4,7 @@ import { Bot, Cpu, Wrench, Coffee } from 'lucide-react';
 import type { LiveAgentStatus } from '@/lib/types';
 
 const STATUS_CONFIG: Record<LiveAgentStatus['status'], { border: string; icon: React.ReactNode; label: string }> = {
-  running: { border: 'border-blue-500/50', icon: <Cpu className="w-4 h-4 text-blue-400" />, label: 'Thinking' },
+  running: { border: 'border-gh-accent/50', icon: <Cpu className="w-4 h-4 text-gh-accent" />, label: 'Thinking' },
   idle: { border: 'border-gh-border', icon: <Coffee className="w-4 h-4 text-gh-fg-subtle" />, label: 'Idle' },
   error: { border: 'border-red-500/50', icon: <Bot className="w-4 h-4 text-red-400" />, label: 'Error' },
   completed: { border: 'border-green-500/50', icon: <Bot className="w-4 h-4 text-green-400" />, label: 'Done' },
@@ -27,8 +27,8 @@ export function LiveAgentGrid({ agents }: Props) {
                 <div className="flex items-center gap-2">
                   {agent.status === 'running' && (
                     <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gh-accent opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gh-accent" />
                     </span>
                   )}
                   <span className="text-sm font-semibold text-gh-fg">{agent.name}</span>

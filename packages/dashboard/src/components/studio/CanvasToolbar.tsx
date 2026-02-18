@@ -35,7 +35,7 @@ function ToolbarButton({
 }) {
   const base = 'p-2 rounded-lg transition-colors disabled:opacity-30';
   const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-500 text-gh-fg',
+    primary: 'bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg',
     success: 'bg-green-600 hover:bg-green-500 text-gh-fg',
     default: 'text-gh-fg-muted hover:text-gh-fg hover:bg-gh-btn-hover',
   };

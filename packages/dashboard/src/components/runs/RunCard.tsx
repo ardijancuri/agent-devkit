@@ -7,8 +7,8 @@ const STATUS_STYLES: Record<Run['status'], { bg: string; text: string; dot: stri
   completed: { bg: 'bg-green-500/10', text: 'text-green-400', dot: 'bg-green-400' },
   running: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', dot: 'bg-yellow-400' },
   failed: { bg: 'bg-red-500/10', text: 'text-red-400', dot: 'bg-red-400' },
-  pending: { bg: 'bg-gray-500/10', text: 'text-gh-fg-muted', dot: 'bg-gray-400' },
-  cancelled: { bg: 'bg-gray-500/10', text: 'text-gh-fg-subtle', dot: 'bg-gray-500' },
+  pending: { bg: 'bg-gh-fg-subtle/10', text: 'text-gh-fg-muted', dot: 'bg-gh-fg-muted' },
+  cancelled: { bg: 'bg-gh-fg-subtle/10', text: 'text-gh-fg-subtle', dot: 'bg-gh-fg-subtle' },
 };
 
 function formatDuration(seconds: number | null): string {
@@ -81,7 +81,7 @@ export function RunCard({ run, projectName, onClick }: RunCardProps) {
       {/* Timestamp */}
       <span className="text-xs text-gh-fg-subtle whitespace-nowrap">{relativeTime(run.startedAt)}</span>
 
-      <ChevronRight className="w-4 h-4 text-gray-700 group-hover:text-gh-fg-muted transition-colors" />
+      <ChevronRight className="w-4 h-4 text-gh-fg-subtle group-hover:text-gh-fg-muted transition-colors" />
     </button>
   );
 }

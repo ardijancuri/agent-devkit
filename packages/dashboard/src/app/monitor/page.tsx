@@ -56,7 +56,7 @@ export default function MonitorPage() {
   const totalTokens = agents.reduce((s, a) => s + a.tokensUsed, 0);
 
   return (
-    <div className="min-h-screen bg-gray-950 p-6">
+    <div className="min-h-screen bg-gh-canvas p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -72,7 +72,7 @@ export default function MonitorPage() {
 
         {!hasActiveRun ? (
           <div className="bg-gh-subtle border border-gh-border rounded-lg p-16 text-center">
-            <Radio className="w-16 h-16 text-gray-700 mx-auto mb-4" />
+            <Radio className="w-16 h-16 text-gh-fg-subtle mx-auto mb-4" />
             <h2 className="text-xl font-semibold text-gh-fg-muted mb-2">No Active Runs</h2>
             <p className="text-gh-fg-subtle">Start a run from the Studio to see live monitoring data.</p>
           </div>

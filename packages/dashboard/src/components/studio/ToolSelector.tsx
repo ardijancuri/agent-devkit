@@ -49,7 +49,7 @@ export default function ToolSelector({ selectedTools, onChange }: ToolSelectorPr
             type="checkbox"
             checked={selectedTools.includes(tool.id)}
             onChange={() => toggle(tool.id)}
-            className="w-4 h-4 rounded bg-gh-btn border-gray-600 text-blue-500 focus:ring-blue-500 focus:ring-offset-0"
+            className="w-4 h-4 rounded bg-gh-btn border-gh-border text-gh-accent focus:ring-gh-accent focus:ring-offset-0"
           />
           <Wrench className="w-3.5 h-3.5 text-gh-fg-muted" />
           <div>
@@ -78,24 +78,24 @@ export default function ToolSelector({ selectedTools, onChange }: ToolSelectorPr
             value={customName}
             onChange={(e) => setCustomName(e.target.value)}
             placeholder="Tool name"
-            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
           />
           <input
             type="text"
             value={customDesc}
             onChange={(e) => setCustomDesc(e.target.value)}
             placeholder="Description"
-            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+            className="w-full bg-gh-subtle border border-gh-border rounded px-2 py-1.5 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
           />
           <div className="flex gap-2 justify-end">
             <button onClick={() => setShowCustom(false)} className="text-xs text-gh-fg-muted hover:text-gh-fg">Cancel</button>
-            <button onClick={addCustom} className="text-xs bg-blue-600 hover:bg-blue-500 text-gh-fg px-2 py-1 rounded">Add</button>
+            <button onClick={addCustom} className="text-xs bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg px-2 py-1 rounded">Add</button>
           </div>
         </div>
       ) : (
         <button
           onClick={() => setShowCustom(true)}
-          className="flex items-center gap-1.5 text-sm text-blue-400 hover:text-blue-300 mt-2"
+          className="flex items-center gap-1.5 text-sm text-gh-accent hover:text-gh-accent mt-2"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Custom Tool

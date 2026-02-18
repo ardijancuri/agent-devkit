@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Wrench, MessageSquare, GitBranch, AlertCircle, ArrowDown, Filter } from 'lucide-react';
 import type { RunEvent } from '@/lib/types';
 
-const AGENT_COLORS = ['text-blue-400', 'text-emerald-400', 'text-purple-400', 'text-orange-400'];
+const AGENT_COLORS = ['text-gh-accent', 'text-emerald-400', 'text-purple-400', 'text-orange-400'];
 
 const EVENT_ICONS: Partial<Record<RunEvent['type'], React.ReactNode>> = {
-  tool_call: <Wrench className="w-3 h-3 text-blue-400" />,
-  tool_result: <Wrench className="w-3 h-3 text-blue-300" />,
+  tool_call: <Wrench className="w-3 h-3 text-gh-accent" />,
+  tool_result: <Wrench className="w-3 h-3 text-gh-accent" />,
   message_sent: <MessageSquare className="w-3 h-3 text-green-400" />,
   message_received: <MessageSquare className="w-3 h-3 text-green-300" />,
   decision: <GitBranch className="w-3 h-3 text-gh-fg-muted" />,
@@ -47,7 +47,7 @@ export function EventFeed({ events }: Props) {
         <h2 className="text-sm font-medium text-gh-fg-muted">Event Feed</h2>
         <button
           onClick={() => setAutoScroll(!autoScroll)}
-          className={`flex items-center gap-1 text-xs px-2 py-1 rounded ${autoScroll ? 'bg-blue-500/10 text-blue-400' : 'bg-gh-btn text-gh-fg-subtle'}`}
+          className={`flex items-center gap-1 text-xs px-2 py-1 rounded ${autoScroll ? 'bg-gh-accent/10 text-gh-accent' : 'bg-gh-btn text-gh-fg-subtle'}`}
         >
           <ArrowDown className="w-3 h-3" />
           Auto-scroll {autoScroll ? 'ON' : 'OFF'}

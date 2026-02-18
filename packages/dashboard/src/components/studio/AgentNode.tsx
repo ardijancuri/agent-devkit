@@ -8,7 +8,7 @@ import type { AgentNode as AgentNodeType } from '@/lib/types';
 const MODEL_COLORS: Record<string, string> = {
   'claude-opus': 'bg-purple-600',
   'claude-sonnet': 'bg-violet-500',
-  'claude-haiku': 'bg-indigo-500',
+  'claude-haiku': 'bg-gh-accent',
   'gpt-4o': 'bg-green-600',
   'gpt-4': 'bg-emerald-600',
   'gpt-3.5': 'bg-teal-600',
@@ -18,7 +18,7 @@ function getModelColor(model: string) {
   for (const [key, color] of Object.entries(MODEL_COLORS)) {
     if (model.toLowerCase().includes(key)) return color;
   }
-  return 'bg-gray-600';
+  return 'bg-gh-fg-subtle';
 }
 
 function getModelLabel(model: string) {
@@ -43,16 +43,16 @@ function AgentNodeComponent({ data, id, selected }: NodeProps & { data: AgentNod
   return (
     <div
       className={`relative bg-gh-subtle border-2 rounded-xl px-4 py-3 min-w-[180px] transition-all ${
-        selected ? 'border-blue-500 shadow-lg shadow-blue-500/20' : 'border-gh-border hover:border-gray-500'
+        selected ? 'border-gh-accent shadow-lg shadow-gh-accent/20' : 'border-gh-border hover:border-gh-border'
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onDoubleClick={() => data.onDoubleClick?.(id)}
     >
-      <Handle type="target" position={Position.Top} className="!bg-blue-500 !w-3 !h-3 !border-2 !border-gray-900" />
-      <Handle type="source" position={Position.Bottom} className="!bg-blue-500 !w-3 !h-3 !border-2 !border-gray-900" />
-      <Handle type="target" position={Position.Left} id="left" className="!bg-blue-500 !w-3 !h-3 !border-2 !border-gray-900" />
-      <Handle type="source" position={Position.Right} id="right" className="!bg-blue-500 !w-3 !h-3 !border-2 !border-gray-900" />
+      <Handle type="target" position={Position.Top} className="!bg-gh-accent !w-3 !h-3 !border-2 !border-gh-canvas" />
+      <Handle type="source" position={Position.Bottom} className="!bg-gh-accent !w-3 !h-3 !border-2 !border-gh-canvas" />
+      <Handle type="target" position={Position.Left} id="left" className="!bg-gh-accent !w-3 !h-3 !border-2 !border-gh-canvas" />
+      <Handle type="source" position={Position.Right} id="right" className="!bg-gh-accent !w-3 !h-3 !border-2 !border-gh-canvas" />
 
       {/* Delete button */}
       {hovered && (
@@ -68,7 +68,7 @@ function AgentNodeComponent({ data, id, selected }: NodeProps & { data: AgentNod
       )}
 
       <div className="flex items-center gap-2 mb-2">
-        <Bot className="w-4 h-4 text-blue-400 shrink-0" />
+        <Bot className="w-4 h-4 text-gh-accent shrink-0" />
         <span className="text-sm font-semibold text-gh-fg truncate">{data.name}</span>
       </div>
 

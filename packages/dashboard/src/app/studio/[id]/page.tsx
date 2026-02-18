@@ -133,7 +133,7 @@ export default function ProjectEditorPage() {
   );
 
   return (
-    <div className="h-screen flex bg-gray-950">
+    <div className="h-screen flex bg-gh-canvas">
       <ReactFlowProvider>
         <PatternLibrary onApply={handleApplyPattern} />
         <div className="flex-1 relative">

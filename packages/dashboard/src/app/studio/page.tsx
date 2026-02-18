@@ -36,11 +36,11 @@ const mockProjects: Project[] = [
 ];
 
 function statusColor(project: Project) {
-  if (!project.lastRunAt) return 'bg-gray-500';
+  if (!project.lastRunAt) return 'bg-gh-fg-subtle';
   const age = Date.now() - new Date(project.lastRunAt).getTime();
   if (age < 86400000) return 'bg-green-500';
   if (age < 604800000) return 'bg-yellow-500';
-  return 'bg-gray-500';
+  return 'bg-gh-fg-subtle';
 }
 
 function timeAgo(date: string | null) {
@@ -67,7 +67,7 @@ export default function StudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 p-8">
+    <div className="min-h-screen bg-gh-canvas p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -76,7 +76,7 @@ export default function StudioPage() {
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-gh-fg rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg rounded-lg transition-colors"
           >
             <Plus className="w-4 h-4" />
             New Project
@@ -88,12 +88,12 @@ export default function StudioPage() {
             <Link
               key={project.id}
               href={`/studio/${project.id}`}
-              className="group block bg-gh-subtle border border-gh-border rounded-xl p-6 hover:border-gray-600 transition-colors"
+              className="group block bg-gh-subtle border border-gh-border rounded-xl p-6 hover:border-gh-border transition-colors"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <FolderOpen className="w-5 h-5 text-blue-400" />
-                  <h3 className="text-lg font-semibold text-gh-fg group-hover:text-blue-400 transition-colors">
+                  <FolderOpen className="w-5 h-5 text-gh-accent" />
+                  <h3 className="text-lg font-semibold text-gh-fg group-hover:text-gh-accent transition-colors">
                     {project.name}
                   </h3>
                 </div>
@@ -132,7 +132,7 @@ export default function StudioPage() {
                   type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
-                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-blue-500"
+                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-gh-accent"
                   placeholder="My Agent System"
                   autoFocus
                 />
@@ -142,7 +142,7 @@ export default function StudioPage() {
                 <textarea
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
-                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-blue-500 h-24 resize-none"
+                  className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-gh-fg focus:outline-none focus:border-gh-accent h-24 resize-none"
                   placeholder="What does this system do?"
                 />
               </div>
@@ -155,7 +155,7 @@ export default function StudioPage() {
                 </button>
                 <button
                   onClick={handleCreate}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-gh-fg rounded-lg transition-colors"
+                  className="px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg rounded-lg transition-colors"
                 >
                   Create
                 </button>

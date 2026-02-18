@@ -42,12 +42,12 @@ export default function RunsPage() {
   const pageRuns = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <div className="min-h-screen bg-gray-950 p-6">
+    <div className="min-h-screen bg-gh-canvas p-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-gh-fg flex items-center gap-2">
-              <Activity className="w-6 h-6 text-blue-400" />
+              <Activity className="w-6 h-6 text-gh-accent" />
               Run History
             </h1>
             <p className="text-gh-fg-muted mt-1">{filtered.length} runs total</p>
@@ -63,7 +63,7 @@ export default function RunsPage() {
               placeholder="Search runs..."
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
-              className="w-full bg-gh-btn border border-gh-border rounded-md pl-10 pr-4 py-2 text-sm text-gh-fg placeholder-gh-fg-subtle focus:outline-none focus:border-blue-500"
+              className="w-full bg-gh-btn border border-gh-border rounded-md pl-10 pr-4 py-2 text-sm text-gh-fg placeholder-gh-fg-subtle focus:outline-none focus:border-gh-accent"
             />
           </div>
 
@@ -72,7 +72,7 @@ export default function RunsPage() {
             <select
               value={statusFilter}
               onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
-              className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+              className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
             >
               <option value="all">All Statuses</option>
               <option value="running">Running</option>
@@ -86,7 +86,7 @@ export default function RunsPage() {
           <select
             value={projectFilter}
             onChange={e => { setProjectFilter(e.target.value); setPage(1); }}
-            className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+            className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
           >
             <option value="all">All Projects</option>
             {projects.map(p => (
@@ -107,7 +107,7 @@ export default function RunsPage() {
           ))}
           {pageRuns.length === 0 && (
             <div className="bg-gh-subtle border border-gh-border rounded-lg p-12 text-center">
-              <Activity className="w-12 h-12 text-gray-700 mx-auto mb-3" />
+              <Activity className="w-12 h-12 text-gh-fg-subtle mx-auto mb-3" />
               <p className="text-gh-fg-muted">No runs found</p>
             </div>
           )}
@@ -135,7 +135,7 @@ export default function RunsPage() {
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-blue-600 text-gh-fg' : 'bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg'}`}
+                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-gh-accent-emphasis text-gh-fg' : 'bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg'}`}
                   >
                     {p}
                   </button>

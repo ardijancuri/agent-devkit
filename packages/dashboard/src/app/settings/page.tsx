@@ -92,7 +92,7 @@ export default function SettingsPage() {
                   <div key={item} className="flex items-center justify-between rounded-lg bg-gh-btn/50 px-4 py-3">
                     <span className="text-sm text-gh-fg">{item}</span>
                     <button className="relative h-6 w-11 rounded-full bg-gh-btn-hover transition-colors focus:outline-none">
-                      <span className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-gray-400 transition-transform" />
+                      <span className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-gh-fg-muted transition-transform" />
                     </button>
                   </div>
                 ))}

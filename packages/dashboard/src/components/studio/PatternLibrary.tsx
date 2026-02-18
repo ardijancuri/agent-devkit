@@ -18,7 +18,7 @@ const PATTERNS: Pattern[] = [
     id: 'orchestrator',
     name: 'Orchestrator → Workers',
     description: 'Central coordinator delegates to specialized worker agents',
-    icon: <Network className="w-5 h-5 text-blue-400" />,
+    icon: <Network className="w-5 h-5 text-gh-accent" />,
     agents: [
       { name: 'Orchestrator', model: 'claude-opus', systemPrompt: 'You coordinate the workers.', tools: [], permissions: {}, limits: { maxTokens: 100000 }, position: { x: 300, y: 50 } },
       { name: 'Worker 1', model: 'claude-sonnet', systemPrompt: 'You handle task type A.', tools: ['file_read', 'file_write'], permissions: {}, limits: {}, position: { x: 100, y: 250 } },
@@ -135,7 +135,7 @@ export default function PatternLibrary({ onApply }: PatternLibraryProps) {
           >
             <div className="flex items-center gap-2 mb-1">
               {pattern.icon}
-              <span className="text-sm font-medium text-gh-fg group-hover:text-blue-400 transition-colors">
+              <span className="text-sm font-medium text-gh-fg group-hover:text-gh-accent transition-colors">
                 {pattern.name}
               </span>
             </div>

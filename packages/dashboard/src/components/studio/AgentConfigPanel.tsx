@@ -49,7 +49,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
             key={t}
             onClick={() => setTab(t)}
             className={`flex-1 py-2 text-xs font-medium transition-colors ${
-              tab === t ? 'text-blue-400 border-b-2 border-blue-400' : 'text-gh-fg-subtle hover:text-gh-fg-muted'
+              tab === t ? 'text-gh-accent border-b-2 border-gh-accent' : 'text-gh-fg-subtle hover:text-gh-fg-muted'
             }`}
           >
             {t}
@@ -67,7 +67,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
                 type="text"
                 value={draft.name}
                 onChange={(e) => update({ name: e.target.value })}
-                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
               />
             </div>
             <div>
@@ -75,7 +75,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
               <select
                 value={draft.model}
                 onChange={(e) => update({ model: e.target.value })}
-                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
               >
                 {MODELS.map((m) => (
                   <option key={m.value} value={m.value}>{m.label}</option>
@@ -91,7 +91,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
             <textarea
               value={draft.systemPrompt}
               onChange={(e) => update({ systemPrompt: e.target.value })}
-              className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg font-mono focus:outline-none focus:border-blue-500 h-[400px] resize-none"
+              className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg font-mono focus:outline-none focus:border-gh-accent h-[400px] resize-none"
               placeholder="You are a helpful assistant..."
             />
           </div>
@@ -112,7 +112,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
                 type="number"
                 value={draft.limits.maxTokens ?? ''}
                 onChange={(e) => update({ limits: { ...draft.limits, maxTokens: e.target.value ? Number(e.target.value) : undefined } })}
-                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
                 placeholder="100000"
               />
             </div>
@@ -123,7 +123,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
                 step="0.01"
                 value={draft.limits.maxCost ?? ''}
                 onChange={(e) => update({ limits: { ...draft.limits, maxCost: e.target.value ? Number(e.target.value) : undefined } })}
-                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
                 placeholder="5.00"
               />
             </div>
@@ -133,7 +133,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
                 type="number"
                 value={draft.limits.maxTime ?? ''}
                 onChange={(e) => update({ limits: { ...draft.limits, maxTime: e.target.value ? Number(e.target.value) : undefined } })}
-                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="w-full bg-gh-btn border border-gh-border rounded-lg px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
                 placeholder="300"
               />
             </div>
@@ -152,7 +152,7 @@ export default function AgentConfigPanel({ agent, onUpdate, onDelete, onClose }:
         </button>
         <button
           onClick={() => onUpdate(draft)}
-          className="flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-gh-fg text-xs rounded-lg"
+          className="flex items-center gap-1 px-3 py-1.5 bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg text-xs rounded-lg"
         >
           <Save className="w-3.5 h-3.5" />
           Save

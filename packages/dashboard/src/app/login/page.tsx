@@ -52,7 +52,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-gh-border bg-gh-btn px-3.5 py-2.5 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-gh-border bg-gh-btn px-3.5 py-2.5 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none focus:ring-1 focus:ring-gh-accent"
               placeholder="you@example.com"
             />
           </div>
@@ -67,7 +67,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-gh-border bg-gh-btn px-3.5 py-2.5 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-gh-border bg-gh-btn px-3.5 py-2.5 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none focus:ring-1 focus:ring-gh-accent"
               placeholder="••••••••"
             />
           </div>
@@ -75,7 +75,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-gh-accent-emphasis px-4 py-2.5 text-sm font-medium text-gh-fg hover:bg-gh-accent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950 disabled:opacity-50 transition-colors"
+            className="w-full rounded-lg bg-gh-accent-emphasis px-4 py-2.5 text-sm font-medium text-gh-fg hover:bg-gh-accent focus:outline-none focus:ring-2 focus:ring-gh-accent focus:ring-offset-2 focus:ring-offset-gh-canvas disabled:opacity-50 transition-colors"
           >
             {loading ? 'Signing in…' : 'Sign in'}
           </button>

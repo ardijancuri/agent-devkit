@@ -77,7 +77,7 @@ export default function RunDetailPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-950 p-6">
+    <div className="min-h-screen bg-gh-canvas p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <button onClick={() => router.push('/runs')} className="flex items-center gap-2 text-sm text-gh-fg-muted hover:text-gh-fg mb-4 transition-colors">
@@ -115,7 +115,7 @@ export default function RunDetailPage() {
             <button
               key={id}
               onClick={() => setTab(id)}
-              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors cursor-pointer ${tab === id ? 'border-blue-500 text-blue-400' : 'border-transparent text-gh-fg-subtle hover:text-gh-fg-muted'}`}
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors cursor-pointer ${tab === id ? 'border-gh-accent text-gh-accent' : 'border-transparent text-gh-fg-subtle hover:text-gh-fg-muted'}`}
             >
               <Icon className="w-4 h-4" /> {label}
             </button>
@@ -131,7 +131,7 @@ export default function RunDetailPage() {
               <select
                 value={eventTypeFilter}
                 onChange={e => setEventTypeFilter(e.target.value)}
-                className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-blue-500"
+                className="bg-gh-btn border border-gh-border rounded-md px-3 py-2 text-sm text-gh-fg focus:outline-none focus:border-gh-accent"
               >
                 <option value="all">All Event Types</option>
                 {EVENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
@@ -143,10 +143,10 @@ export default function RunDetailPage() {
                   <span className="text-xs text-gh-fg-subtle font-mono w-20 shrink-0">
                     {new Date(evt.timestamp).toLocaleTimeString()}
                   </span>
-                  <span className={`text-xs font-medium w-24 shrink-0 ${['text-blue-400', 'text-emerald-400', 'text-purple-400', 'text-orange-400'][parseInt(evt.agentId.split('-')[1])]}`}>
+                  <span className={`text-xs font-medium w-24 shrink-0 ${['text-gh-accent', 'text-emerald-400', 'text-purple-400', 'text-orange-400'][parseInt(evt.agentId.split('-')[1])]}`}>
                     {evt.agentName}
                   </span>
-                  <span className={`px-2 py-0.5 rounded text-xs ${evt.type === 'error' ? 'bg-red-500/10 text-red-400' : evt.type.startsWith('tool') ? 'bg-blue-500/10 text-blue-400' : 'bg-gh-btn text-gh-fg-muted'}`}>
+                  <span className={`px-2 py-0.5 rounded text-xs ${evt.type === 'error' ? 'bg-red-500/10 text-red-400' : evt.type.startsWith('tool') ? 'bg-gh-accent/10 text-gh-accent' : 'bg-gh-btn text-gh-fg-muted'}`}>
                     {evt.type}
                   </span>
                   <span className="text-sm text-gh-fg-muted flex-1 truncate">{String(evt.data.summary)}</span>
