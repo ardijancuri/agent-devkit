@@ -75,7 +75,7 @@ export function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-gh-fg-muted hover:bg-gh-btn transition-colors cursor-pointer"
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gh-btn text-xs font-medium text-gh-fg">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gh-btn border-2 border-gh-border text-xs font-medium text-gh-fg">
               {user?.name?.charAt(0).toUpperCase() || 'U'}
             </div>
             <span className="hidden sm:inline">{user?.name || 'User'}</span>
