@@ -28,7 +28,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gh-accent-emphasis">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#0969da' }}>
             <Bot className="h-7 w-7 text-white" />
           </div>
           <h1 className="mt-4 text-2xl font-bold text-gh-fg">AgentDevKit</h1>

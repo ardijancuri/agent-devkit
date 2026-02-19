@@ -39,8 +39,8 @@ export function Sidebar() {
         {/* Logo */}
         <div className="flex h-14 items-center justify-between border-b border-gh-border px-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gh-accent-emphasis">
-              <Bot className="h-4.5 w-4.5 text-white" />
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg" style={{ backgroundColor: '#0969da' }}>
+              <Bot className="h-5 w-5 text-white" />
             </div>
             {(sidebarOpen) && <span className="text-sm font-bold text-gh-fg tracking-tight lg:hidden xl:inline">AgentDevKit</span>}
           </div>
