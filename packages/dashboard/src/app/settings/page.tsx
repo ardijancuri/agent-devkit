@@ -81,7 +81,7 @@ export default function SettingsPage() {
                     className="w-full rounded-lg border border-gh-border bg-gh-btn px-3 py-2 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none"
                   />
                 </div>
-                <button className="flex items-center gap-2 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-gh-fg transition-colors w-fit">
+                <button className="flex items-center gap-2 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-white transition-colors w-fit">
                   <Save className="h-4 w-4" /> Save Changes
                 </button>
               </div>
@@ -95,7 +95,7 @@ export default function SettingsPage() {
               <div className="rounded-lg border border-gh-border bg-gh-btn/50 p-8 text-center">
                 <Key className="mx-auto h-8 w-8 text-gh-fg-subtle" />
                 <p className="mt-3 text-sm text-gh-fg-subtle">No API keys yet</p>
-                <button className="mt-4 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-gh-fg transition-colors">
+                <button className="mt-4 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-white transition-colors">
                   Generate Key
                 </button>
               </div>
@@ -136,7 +136,7 @@ export default function SettingsPage() {
                     className="w-full rounded-lg border border-gh-border bg-gh-btn px-3 py-2 text-sm text-gh-fg placeholder-gh-fg-subtle focus:border-gh-accent focus:outline-none"
                   />
                 </div>
-                <button className="flex items-center gap-2 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-gh-fg transition-colors w-fit">
+                <button className="flex items-center gap-2 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-2 text-sm font-medium text-white transition-colors w-fit">
                   <Shield className="h-4 w-4" /> Update Password
                 </button>
               </div>

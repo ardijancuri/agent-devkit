@@ -29,7 +29,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gh-accent-emphasis">
-            <Bot className="h-7 w-7 text-gh-fg" />
+            <Bot className="h-7 w-7 text-white" />
           </div>
           <h1 className="mt-4 text-2xl font-bold text-gh-fg">AgentDevKit</h1>
           <p className="mt-1 text-sm text-gh-fg-muted">Sign in to your account</p>
@@ -75,7 +75,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-gh-accent-emphasis px-4 py-2.5 text-sm font-medium text-gh-fg hover:bg-gh-accent focus:outline-none focus:ring-2 focus:ring-gh-accent focus:ring-offset-2 focus:ring-offset-gh-canvas disabled:opacity-50 transition-colors"
+            className="w-full rounded-lg bg-gh-accent-emphasis px-4 py-2.5 text-sm font-medium text-white hover:bg-gh-accent focus:outline-none focus:ring-2 focus:ring-gh-accent focus:ring-offset-2 focus:ring-offset-gh-canvas disabled:opacity-50 transition-colors"
           >
             {loading ? 'Signing in…' : 'Sign in'}
           </button>

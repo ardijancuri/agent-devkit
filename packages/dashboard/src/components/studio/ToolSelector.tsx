@@ -89,7 +89,7 @@ export default function ToolSelector({ selectedTools, onChange }: ToolSelectorPr
           />
           <div className="flex gap-2 justify-end">
             <button onClick={() => setShowCustom(false)} className="text-xs text-gh-fg-muted hover:text-gh-fg">Cancel</button>
-            <button onClick={addCustom} className="text-xs bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg px-2 py-1 rounded">Add</button>
+            <button onClick={addCustom} className="text-xs bg-gh-accent-emphasis hover:bg-gh-accent text-white px-2 py-1 rounded">Add</button>
           </div>
         </div>
       ) : (

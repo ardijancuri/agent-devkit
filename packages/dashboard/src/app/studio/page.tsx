@@ -76,7 +76,7 @@ export default function StudioPage() {
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-white rounded-lg transition-colors"
           >
             <Plus className="w-4 h-4" />
             New Project
@@ -155,7 +155,7 @@ export default function StudioPage() {
                 </button>
                 <button
                   onClick={handleCreate}
-                  className="px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-gh-fg rounded-lg transition-colors"
+                  className="px-4 py-2 bg-gh-accent-emphasis hover:bg-gh-accent text-white rounded-lg transition-colors"
                 >
                   Create
                 </button>

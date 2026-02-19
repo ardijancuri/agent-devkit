@@ -102,7 +102,7 @@ export default function DashboardPage() {
           <div className="rounded-xl border border-gh-border bg-gh-subtle p-5">
             <h2 className="text-lg font-semibold text-gh-fg mb-4">Quick Actions</h2>
             <div className="space-y-3">
-              <button onClick={() => router.push('/studio?new=1')} className="w-full flex items-center gap-3 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-3 text-sm font-medium text-gh-fg transition-colors">
+              <button onClick={() => router.push('/studio?new=1')} className="w-full flex items-center gap-3 rounded-lg bg-gh-accent-emphasis hover:bg-gh-accent px-4 py-3 text-sm font-medium text-white transition-colors">
                 <Plus className="h-4 w-4" /> New Project
               </button>
               <button onClick={() => router.push('/studio')} className="w-full flex items-center gap-3 rounded-lg bg-gh-btn hover:bg-gh-btn-hover px-4 py-3 text-sm font-medium text-gh-fg transition-colors">

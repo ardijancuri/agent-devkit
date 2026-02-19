@@ -135,7 +135,7 @@ export default function RunsPage() {
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-gh-accent-emphasis text-gh-fg' : 'bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg'}`}
+                    className={`px-3 py-1.5 rounded-md text-sm ${p === page ? 'bg-gh-accent-emphasis text-white' : 'bg-gh-btn border border-gh-border text-gh-fg-muted hover:text-gh-fg'}`}
                   >
                     {p}
                   </button>
