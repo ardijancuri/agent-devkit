@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useRef } from 'react';
+import { useTheme } from '@/lib/theme';
 import type { Run, RunEvent } from '@/lib/types';
 
 const AGENT_COLORS = ['#3b82f6', '#10b981', '#a855f7', '#f97316', '#ef4444', '#06b6d4', '#eab308', '#ec4899'];
@@ -21,9 +22,16 @@ interface Props {
 }
 
 export function EventTimeline({ events, run }: Props) {
+  const { theme } = useTheme();
   const [hoveredEvent, setHoveredEvent] = useState<RunEvent | null>(null);
   const [popoverPos, setPopoverPos] = useState({ x: 0, y: 0 });
   const svgRef = useRef<SVGSVGElement>(null);
+
+  const isDark = theme === 'dark';
+  const gridColor = isDark ? '#30363d' : '#d0d7de';
+  const textColor = isDark ? '#8b949e' : '#656d76';
+  const laneEven = isDark ? '#161b22' : '#f6f8fa';
+  const laneOdd = isDark ? '#0d1117' : '#ffffff';
 
   const agents = useMemo(() => [...new Set(events.map(e => e.agentName))], [events]);
   const startTime = new Date(run.startedAt).getTime();
@@ -51,8 +59,8 @@ export function EventTimeline({ events, run }: Props) {
           const time = new Date(startTime + (totalMs / 5) * i);
           return (
             <g key={i}>
-              <line x1={x} y1={TOP_MARGIN - 5} x2={x} y2={svgHeight - 10} stroke="#374151" strokeWidth={0.5} />
-              <text x={x} y={TOP_MARGIN - 10} fill="#6b7280" fontSize={10} textAnchor="middle">
+              <line x1={x} y1={TOP_MARGIN - 5} x2={x} y2={svgHeight - 10} stroke={gridColor} strokeWidth={0.5} />
+              <text x={x} y={TOP_MARGIN - 10} fill={textColor} fontSize={10} textAnchor="middle">
                 {time.toLocaleTimeString([], { minute: '2-digit', second: '2-digit' })}
               </text>
             </g>
@@ -65,13 +73,13 @@ export function EventTimeline({ events, run }: Props) {
           const agentEvents = events.filter(e => e.agentName === agent);
           return (
             <g key={agent}>
-              <rect x={0} y={y} width={CHART_WIDTH} height={LANE_HEIGHT} fill={i % 2 === 0 ? '#111827' : '#0f172a'} rx={4} />
+              <rect x={0} y={y} width={CHART_WIDTH} height={LANE_HEIGHT} fill={i % 2 === 0 ? laneEven : laneOdd} rx={4} />
               <text x={8} y={y + LANE_HEIGHT / 2 + 4} fill={AGENT_COLORS[i % AGENT_COLORS.length]} fontSize={12} fontWeight={600}>
                 {agent}
               </text>
               {agentEvents.map(evt => {
                 const ex = xPos(evt.timestamp);
-                const color = EVENT_COLORS[evt.type] || '#6b7280';
+                const color = EVENT_COLORS[evt.type] || '#6b7680';
                 return (
                   <rect
                     key={evt.id}

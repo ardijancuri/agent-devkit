@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useTheme } from '@/lib/theme';
 import type { RunEvent } from '@/lib/types';
 
 const AGENT_COLORS = ['#3b82f6', '#10b981', '#a855f7', '#f97316', '#ef4444', '#06b6d4', '#eab308', '#ec4899'];
@@ -10,7 +11,11 @@ interface Props {
 }
 
 export function TokenWaterfall({ events }: Props) {
+  const { theme } = useTheme();
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const isDark = theme === 'dark';
+  const gridColor = isDark ? '#30363d' : '#d0d7de';
+  const textColor = isDark ? '#8b949e' : '#656d76';
 
   const llmEvents = useMemo(
     () => events.filter(e => e.tokens > 0).sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()),
@@ -44,8 +49,8 @@ export function TokenWaterfall({ events }: Props) {
           const val = Math.round(frac * maxTokens);
           return (
             <g key={frac}>
-              <line x1={MARGIN_L} y1={y} x2={CHART_W - 10} y2={y} stroke="#1f2937" strokeWidth={0.5} />
-              <text x={MARGIN_L - 5} y={y + 4} fill="#6b7280" fontSize={9} textAnchor="end">
+              <line x1={MARGIN_L} y1={y} x2={CHART_W - 10} y2={y} stroke={gridColor} strokeWidth={0.5} />
+              <text x={MARGIN_L - 5} y={y + 4} fill={textColor} fontSize={9} textAnchor="end">
                 {val >= 1000 ? `${(val / 1000).toFixed(0)}K` : val}
               </text>
             </g>
