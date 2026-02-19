@@ -56,10 +56,10 @@ export default function MonitorPage() {
   const totalTokens = agents.reduce((s, a) => s + a.tokensUsed, 0);
 
   return (
-    <div className="min-h-screen bg-gh-canvas p-6">
+    <div className="min-h-screen bg-gh-canvas p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
             <Radio className="w-6 h-6 text-red-400 animate-pulse" />
             <h1 className="text-2xl font-bold text-gh-fg">Live Monitor</h1>

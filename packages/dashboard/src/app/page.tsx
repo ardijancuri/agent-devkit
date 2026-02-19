@@ -86,9 +86,9 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4 text-sm">
-                    <span className="text-gh-fg-muted">{run.totalTokens.toLocaleString()} tok</span>
-                    <span className="text-gh-fg-muted">${run.totalCost.toFixed(2)}</span>
-                    <span className="text-gh-fg-muted w-12 text-right">{formatDuration(run.duration)}</span>
+                    <span className="hidden sm:inline text-gh-fg-muted">{run.totalTokens.toLocaleString()} tok</span>
+                    <span className="hidden sm:inline text-gh-fg-muted">${run.totalCost.toFixed(2)}</span>
+                    <span className="hidden md:inline text-gh-fg-muted w-12 text-right">{formatDuration(run.duration)}</span>
                     <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS_COLORS[run.status]}`}>
                       {run.status}
                     </span>

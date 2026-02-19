@@ -56,7 +56,7 @@ export default function RunsPage() {
 
         {/* Filter Bar */}
         <div className="bg-gh-subtle border border-gh-border rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-center">
-          <div className="relative flex-1 min-w-[200px]">
+          <div className="relative flex-1 min-w-0 sm:min-w-[200px]">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gh-fg-subtle" />
             <input
               type="text"

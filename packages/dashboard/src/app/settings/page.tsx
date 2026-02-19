@@ -22,14 +22,32 @@ export default function SettingsPage() {
         <p className="mt-1 text-sm text-gh-fg-muted">Manage your account and preferences</p>
       </div>
 
+      {/* Mobile tabs */}
+      <div className="flex gap-2 overflow-x-auto pb-2 md:hidden">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+              activeTab === tab.id
+                ? 'bg-gh-btn text-gh-fg'
+                : 'text-gh-fg-muted hover:bg-gh-btn/50'
+            }`}
+          >
+            <tab.icon className="h-4 w-4" />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       <div className="flex gap-6">
-        {/* Tabs */}
-        <nav className="w-48 shrink-0 space-y-1">
+        {/* Desktop tabs */}
+        <nav className="hidden md:block w-48 shrink-0 space-y-1">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-gh-btn text-gh-fg'
                   : 'text-gh-fg-muted hover:bg-gh-btn/50 hover:text-gh-fg'

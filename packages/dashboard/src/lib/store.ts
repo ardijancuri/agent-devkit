@@ -70,7 +70,7 @@ interface UIStore {
 }
 
 export const useUIStore = create<UIStore>((set) => ({
-  sidebarOpen: true,
+  sidebarOpen: typeof window !== 'undefined' ? window.innerWidth >= 1024 : true,
   selectedAgentId: null,
   modal: null,
   toggleSidebar: () => set((s) => ({ sidebarOpen: !s.sidebarOpen })),

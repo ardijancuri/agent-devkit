@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, LogOut, Moon, Sun } from 'lucide-react';
+import { ChevronRight, LogOut, Menu, Moon, Sun } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
 import { useTheme } from '@/lib/theme';
+import { useUIStore } from '@/lib/store';
 
 function getBreadcrumbs(pathname: string): string[] {
   if (pathname === '/') return ['Dashboard'];
@@ -18,6 +19,7 @@ export function Header() {
   const pathname = usePathname();
   const { user, logout } = useAuth();
   const { theme, toggle } = useTheme();
+  const { setSidebarOpen } = useUIStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const crumbs = getBreadcrumbs(pathname);
@@ -33,17 +35,27 @@ export function Header() {
   }, []);
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b border-gh-border bg-gh-subtle px-6">
-      {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-sm">
-        {crumbs.map((crumb, i) => (
-          <span key={i} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight className="h-3.5 w-3.5 text-gh-fg-subtle" />}
-            <span className={i === crumbs.length - 1 ? 'text-gh-fg font-medium' : 'text-gh-fg-muted'}>
-              {crumb}
+    <header className="flex h-14 shrink-0 items-center justify-between border-b border-gh-border bg-gh-subtle px-4 sm:px-6">
+      <div className="flex items-center gap-3">
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="lg:hidden p-1 text-gh-fg-muted hover:text-gh-fg cursor-pointer"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+
+        {/* Breadcrumbs */}
+        <div className="flex items-center gap-1.5 text-sm">
+          {crumbs.map((crumb, i) => (
+            <span key={i} className="flex items-center gap-1.5">
+              {i > 0 && <ChevronRight className="h-3.5 w-3.5 text-gh-fg-subtle" />}
+              <span className={i === crumbs.length - 1 ? 'text-gh-fg font-medium' : 'text-gh-fg-muted'}>
+                {crumb}
+              </span>
             </span>
-          </span>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Right side */}
